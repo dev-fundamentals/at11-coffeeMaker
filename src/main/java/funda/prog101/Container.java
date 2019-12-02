@@ -1,5 +1,5 @@
 package main.java.funda.prog101;
 
-public class Container {
+public abstract class Container {
 
 }

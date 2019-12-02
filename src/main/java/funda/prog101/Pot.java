@@ -1,5 +1,5 @@
 package main.java.funda.prog101;
 
-public class Pot {
+public class Pot extends Container{
 
 }

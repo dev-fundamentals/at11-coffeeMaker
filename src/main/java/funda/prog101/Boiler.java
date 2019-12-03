@@ -17,4 +17,12 @@ public class Boiler extends Container{
 		this.temperature = temperature;
 		this.deliveryPipe = deliveryPipe;
 	}
+	
+	public void turnOnPipe() {
+		deliveryPipe = true;
+	}
+	
+	public void turnOffPipe() {
+		deliveryPipe = false;
+	}
 }

@@ -1,7 +1,7 @@
 package main.java.funda.prog101;
 
 public enum ContentType {
-	WHATER,
+	WATER,
 	BEAN,
 	COFFEE
 }

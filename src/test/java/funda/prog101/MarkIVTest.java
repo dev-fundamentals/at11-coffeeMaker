@@ -3,7 +3,7 @@ package test.java.funda.prog101;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class ClassSampleTest {
+public class MarkIVTest {
 
 	@Test
 	public void test() {

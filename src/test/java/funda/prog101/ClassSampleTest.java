@@ -1,4 +1,5 @@
 package test.java.funda.prog101;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 

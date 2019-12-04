@@ -8,6 +8,7 @@ package main.java.funda.prog101;
 public abstract class Container {
 	protected ContentType contentType;
 	protected byte quantity;
+	protected byte limit;
 	
 	/**
 	 * This method increments the parameter quantity.

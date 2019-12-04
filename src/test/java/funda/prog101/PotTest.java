@@ -9,36 +9,27 @@ import main.java.funda.prog101.Pot;
 public class PotTest {
 
 	@Test
-	public void addCups_AddCupsofContainer_12() {
-		var expected = 12;
+	public void addCups_AddCupsofContainerUntil12_True() {
 		Container pot = new Pot();
-		var actual = pot.addCups(pot);
-		assertEquals(expected, actual);
+		pot.addCups(pot);
+		var actual = pot.equals(pot);
+		assertTrue(actual);
 	}
 
 	@Test
-	public void addCups_AddCupsofContainer_0() {
-		var expected = 8;
-		Container pot = new Pot();
-		var actual = pot.addCups(pot);
-		assertEquals(expected, actual);
-	}
-	
-	@Test
 	public void equals_verifyIfPotIsOnHeater_false() {
 		boolean expected = false;
-		Container pot = new Pot();
-		boolean statePot = false;
-		boolean actual = pot.equals(statePot);
+		Pot pot = new Pot();
+		pot.putInTakeOutPot();
+		boolean actual = pot.equals();
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void equals_verifyIfPotIsOnHeater_true() {
 		boolean expected = true;
-		Container pot = new Pot();
-		boolean statePot = false;
-		boolean actual = pot.equals(statePot);
+		Pot pot = new Pot();
+		boolean actual = pot.equals();
 		assertEquals(expected, actual);
 	}
 }

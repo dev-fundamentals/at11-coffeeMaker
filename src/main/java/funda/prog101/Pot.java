@@ -5,8 +5,7 @@ public class Pot extends Container {
 	/*Adds cups to the container when it has between 0 and 11, maximum 12 cups*/
 	@Override
 	public void addCups(Container container) {
-		// TODO Auto-generated method stub
-
+        // TODO Auto-generated method stub
 		for (int i = container.quantity; i < container.limit; i++) {
 			container.quantity++;
 		}
@@ -14,14 +13,21 @@ public class Pot extends Container {
 	/* Change the state of variable aboveHeater */
 	public void putInTakeOutPot() {
 		if (aboveHeater) {
-			aboveHeater = true;
+			this.aboveHeater = false;
 		} else {
-			aboveHeater = false;
+			this.aboveHeater = true;
 		}
 	}
 	/* Verify that the Pot is on the Heater, returns true is it, and false if not on the Heater.*/
-	public boolean equals(boolean statePot) {
-		if (statePot == this.aboveHeater) {
+	public boolean equals() {
+		if (this.aboveHeater == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public boolean equals(Container pot) {
+		if (pot.quantity == pot.limit ) {
 			return true;
 		} else {
 			return false;

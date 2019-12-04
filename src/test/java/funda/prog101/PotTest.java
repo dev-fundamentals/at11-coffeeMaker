@@ -21,15 +21,15 @@ public class PotTest {
 		boolean expected = false;
 		Pot pot = new Pot();
 		pot.putInTakeOutPot();
-		boolean actual = pot.equals();
+		boolean actual = pot.equals(expected);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void equals_verifyIfPotIsOnHeater_true() {
 		boolean expected = true;
 		Pot pot = new Pot();
-		boolean actual = pot.equals();
+		boolean actual = pot.equals(expected);
 		assertEquals(expected, actual);
 	}
 }

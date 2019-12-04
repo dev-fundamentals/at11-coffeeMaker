@@ -1,5 +1,5 @@
 package main.java.funda.prog101;
 
-public class Sensor {
+public abstract class Sensor {
 
 }

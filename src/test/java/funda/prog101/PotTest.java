@@ -20,7 +20,7 @@ public class PotTest {
 	public void equals_verifyIfPotIsOnHeater_false() {
 		boolean expected = false;
 		Pot pot = new Pot();
-		pot.putInTakeOutPot();
+		pot.putOnTakeOutPot();
 		boolean actual = pot.equals(expected);
 		assertEquals(expected, actual);
 	}

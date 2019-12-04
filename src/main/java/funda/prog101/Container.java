@@ -30,4 +30,12 @@ public abstract class Container {
 	 */
 	public void mixCoffee(Pot pot) {
 	}
+	/*
+	 * Verify the pot is Pot contains 12 cups.
+	 */
+	public boolean equals(Container container) {
+		if (container.quantity == container.limit)
+			return true;
+		return false;
+	}
 }

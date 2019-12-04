@@ -31,12 +31,4 @@ public class Pot extends Container {
 		return false;
 	}
 
-	/*
-	 * Verify the pot is Pot contains 12 cups.
-	 */
-	public boolean equals(Container pot) {
-		if (pot.quantity == pot.limit)
-			return true;
-		return false;
-	}
 }

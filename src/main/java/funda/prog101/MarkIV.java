@@ -3,24 +3,37 @@ package main.java.funda.prog101;
 public class MarkIV {
 	private boolean switchButton;
 	private boolean light;
+	
 	/**
 	 * This is MarkIV constructor
-	 * @param startButton sets an boolean date for starting markIv
-	 * @param light sets an boolean date to light
 	 */
-	public MarkIV(boolean switchButton) {
-		this.switchButton = switchButton;
-		this.light = switchButton;
+	public MarkIV() {
+		this.switchButton = false;
+		this.light = false;
 	}
 	
 	/**
 	 * This method is for setting startButton
-	 * @param start boolean parameter;
+	 * @param switchButton boolean parameter;
 	 */
 	public void powerButton(boolean switchButton) {
 		this.switchButton = switchButton;
 	}
+	
+	/**
+	 * This is the verifyingStateMark used to verify markIv state
+	 * @param state gets boolean value
+	 * @return a boolean result e.g. true or false
+	 */
+	public boolean verifyStateMark(boolean state) {
+		return switchButton == state;
+	}
 
+	/**
+	 * This is an Override of equals method from object class
+	 * @param obj Object parameter to compare the object
+	 * @return its return is false or true
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -35,9 +48,5 @@ public class MarkIV {
 		if (switchButton != other.switchButton)
 			return false;
 		return true;
-	}
-	
-	public boolean verifyStateMark(boolean state) {
-		return switchButton == state;
 	}
 }

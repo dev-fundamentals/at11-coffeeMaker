@@ -18,10 +18,10 @@ public class Boiler extends Container {
 	}
 
 	@Override
-	public void addCups(Container container) {
+	public void addCups() {
 		// TODO Auto-generated method stub
-		for (int i = container.quantity; i < container.limit; i++) {
-			container.quantity++;
+		for (int i = this.quantity; i < this.limit; i++) {
+			this.quantity++;
 		}
 	}
 }

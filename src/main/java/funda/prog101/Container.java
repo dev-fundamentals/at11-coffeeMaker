@@ -14,7 +14,7 @@ public abstract class Container {
 	 * This method increments the parameter quantity.
 	 * @param container
 	 */
-	public abstract void addCups(Container container);
+	public abstract void addCups();
 	
 	/**
 	 * This method activates a pipe and return his state.

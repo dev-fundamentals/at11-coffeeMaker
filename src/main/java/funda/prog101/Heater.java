@@ -11,6 +11,5 @@ public class Heater {
 		if (this.state)
 			return this.state = false;
 		return this.state = true;
-		
 	}
 }

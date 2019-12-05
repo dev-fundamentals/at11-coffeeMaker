@@ -37,12 +37,4 @@ public class Pot extends Container {
 			this.aboveHeater = true;
 		}
 	}
-
-	/*
-	 * This method the Pot is on the Heater, returns true is it, and false if not on
-	 * the Heater.
-	 */
-	public boolean equals(boolean statusPot) {
-		return this.aboveHeater == statusPot;
-	}
 }

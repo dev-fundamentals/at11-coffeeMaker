@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import main.java.funda.prog101.Container;
 import main.java.funda.prog101.Pot;
+import main.java.funda.prog101.PotSensor;
+import main.java.funda.prog101.Sensor;
 
 public class PotTest {
 
@@ -19,19 +21,27 @@ public class PotTest {
 
 	@Test
 	public void equals_verifyIfPotIsOnHeater_false() {
-		boolean expected = false;
 		Pot pot = new Pot();
 		pot.putOnTakeOutPot();
-		boolean actual = pot.equals(expected);
+		
+		Sensor sensor = new PotSensor();
+		
+		boolean expected = false;
+		
+		boolean actual = sensor.isAboveHeater(pot);
 
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void equals_verifyIfPotIsOnHeater_true() {
-		boolean expected = true;
 		Pot pot = new Pot();
-		boolean actual = pot.equals(expected);
+		
+		Sensor sensor = new PotSensor();
+		
+		boolean expected = true;
+		
+		boolean actual = sensor.isAboveHeater(pot);
 
 		assertEquals(expected, actual);
 	}

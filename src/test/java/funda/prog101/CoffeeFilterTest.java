@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CoffeeFilterTest {
 
 	@Test
-	public void test() {
+	public void mixCoffee_() {
 		fail("Not yet implemented");
 	}
 

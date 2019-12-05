@@ -2,7 +2,6 @@ package main.java.funda.prog101;
 
 public class Pot extends Container {
 	protected boolean aboveHeater = true;
-
 	/*
 	 * Adds cups to the container when it has between 0 and 11, 
 	 * maximum 12 cups

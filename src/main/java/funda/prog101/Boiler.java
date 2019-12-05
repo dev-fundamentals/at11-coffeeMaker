@@ -1,6 +1,8 @@
 package main.java.funda.prog101;
 
 public class Boiler extends Container{
+	protected byte temperature;
+	protected boolean statePipe;
 	/** Override addCups methods
 	  Adds cups to the container when it has between 0 and 11, 
 	  maximum 12 cups*/

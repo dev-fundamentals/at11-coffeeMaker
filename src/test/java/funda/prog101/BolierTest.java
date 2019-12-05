@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import main.java.funda.prog101.Boiler;
 import main.java.funda.prog101.Container;
-import main.java.funda.prog101.Pot;
 
 public class BolierTest {
 
@@ -14,7 +13,7 @@ public class BolierTest {
 		Container boiler = new Boiler();
 		boiler.addCups(boiler);
 		var actual = boiler.equals(boiler);
+		
 		assertTrue(actual);
 	}
-
 }

@@ -12,7 +12,7 @@ public class BolierTest {
 	public void addCups_AddCupsofContainerUntil12_True() {
 		Container boiler = new Boiler();
 		boiler.addCups(boiler);
-		var actual = boiler.equals(boiler);
+		boolean actual = boiler.equals(boiler);
 		
 		assertTrue(actual);
 	}

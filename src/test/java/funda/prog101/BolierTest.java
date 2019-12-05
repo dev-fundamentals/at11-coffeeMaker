@@ -3,11 +3,17 @@ package test.java.funda.prog101;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import main.java.funda.prog101.Boiler;
+import main.java.funda.prog101.Container;
+
 public class BolierTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void addCups_AddCupsofContainerUntil12_True() {
+		Container boiler = new Boiler();
+		boiler.addCups(boiler);
+		var actual = boiler.equals(boiler);
+		
+		assertTrue(actual);
 	}
-
 }

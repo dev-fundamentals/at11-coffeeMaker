@@ -27,7 +27,6 @@ public class PotTest {
 		Sensor sensor = new PotSensor();
 		
 		boolean expected = false;
-		
 		boolean actual = sensor.isAboveHeater(pot);
 
 		assertEquals(expected, actual);
@@ -40,7 +39,6 @@ public class PotTest {
 		Sensor sensor = new PotSensor();
 		
 		boolean expected = true;
-		
 		boolean actual = sensor.isAboveHeater(pot);
 
 		assertEquals(expected, actual);

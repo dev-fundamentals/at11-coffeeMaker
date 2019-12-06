@@ -39,5 +39,6 @@ public class MarkIVTest {
 		Thread.sleep(10000);
 		Heater heaterPot = markIV.getHeaterPot();
 		heaterPot.switchHeater();
+		//coment
 	}
 }

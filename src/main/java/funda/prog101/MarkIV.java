@@ -71,7 +71,6 @@ public class MarkIV {
 	public void powerButton(boolean switchButton) {
 		this.switchButton = switchButton;
 		this.light = switchButton;
-		this.presureValvue = switchButton;
 	}
 	
 	/**
@@ -96,5 +95,21 @@ public class MarkIV {
 		if (switchButton != other.switchButton)
 			return false;
 		return true;
+	}
+	
+	public void actionHeater() {
+		Pot pot1 = (Pot)pot;
+		if (sensorPot.isAboveHeater(pot1)) {
+			pot1.aboveHeater = false;
+			heaterBoiler.switchHeater();
+//			boiler.presure = false;
+			boiler.switchPipe();
+		}
+		else {
+			pot1.aboveHeater = true;
+			heaterBoiler.switchHeater();
+//			boiler.presure = false;
+			boiler.switchPipe();
+		}
 	}
 }

@@ -8,8 +8,12 @@ public class CoffeeFilter extends Container{
 	}
 
 	@Override
-	public void addCups(Container container) {
-		container.contentType = ContentType.COFFEE;
-		container.quantity = 1;
+	public void addCups() {
+		this.contentType = ContentType.COFFEE;
+		this.quantity = 1;
+	}
+	
+	public void mixCoffee() {
+		this.contentType = contentType.COFFEE;
 	}
 }

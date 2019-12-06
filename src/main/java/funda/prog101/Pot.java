@@ -20,10 +20,10 @@ public class Pot extends Container {
 	 * Adds cups to the container when it has between 0 and 11, maximum 12 cups.
 	 */
 	@Override
-	public void addCups(Container container) {
+	public void addCups() {
 		// TODO Auto-generated method stub
-		for (int iterator = container.quantity; iterator < container.limit; iterator++) {
-			container.quantity++;
+		for (int iterator = this.quantity; iterator < this.limit; iterator++) {
+			this.quantity++;
 		}
 	}
 

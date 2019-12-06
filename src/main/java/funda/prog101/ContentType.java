@@ -4,6 +4,5 @@ public enum ContentType {
 	EMPTY,
 	WATER,
 	COFFEEBEAN,
-	COFFEE,
-	EMPTY
+	COFFEE
 }

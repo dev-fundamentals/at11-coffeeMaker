@@ -1,9 +1,16 @@
 package test.java.funda.prog101;
 
 import static org.junit.Assert.*;
+
+import java.awt.Container;
+
 import org.junit.Test;
+
+import main.java.funda.prog101.Boiler;
+import main.java.funda.prog101.CoffeeFilter;
 import main.java.funda.prog101.Heater;
 import main.java.funda.prog101.MarkIV;
+import main.java.funda.prog101.Pot;
 
 public class MarkIVTest {
 	
@@ -35,9 +42,18 @@ public class MarkIVTest {
 		markIV.powerButton(true);
 		boolean actual = markIV.verifyStateMark(true);
 		Heater heaterBolier = markIV.getHeaterBoiler();
-		heaterBolier.switchHeater();
-		Thread.sleep(10000);
 		Heater heaterPot = markIV.getHeaterPot();
+		Boiler boiler = (Boiler)markIV.getBoiler();
+		
+		heaterBolier.switchHeater();
+		CoffeeFilter coffe = (CoffeeFilter)markIV.getCoffeeFilter();
+		coffe.mixCoffee();
+		Thread.sleep(10000);
+		Pot pot = (Pot)markIV.getPot();
+		pot.addCups();
 		heaterPot.switchHeater();
+		heaterBolier.switchHeater();
+//		markIV.presure = true;
+		boiler.switchPipe();
 	}
 }

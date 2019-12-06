@@ -12,4 +12,8 @@ public class CoffeeFilter extends Container{
 		this.contentType = ContentType.COFFEE;
 		this.quantity = 1;
 	}
+	
+	public void mixCoffee() {
+		this.contentType = contentType.COFFEE;
+	}
 }

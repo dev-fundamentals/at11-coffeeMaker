@@ -13,7 +13,7 @@ public class PotTest {
 		Container pot = new Pot();
 		pot.addCups(pot);
 		boolean actual = pot.equals(pot);
-		
+
 		assertTrue(actual);
 	}
 
@@ -23,7 +23,7 @@ public class PotTest {
 		Pot pot = new Pot();
 		pot.putOnTakeOutPot();
 		boolean actual = pot.equals(expected);
-		
+
 		assertEquals(expected, actual);
 	}
 
@@ -32,7 +32,7 @@ public class PotTest {
 		boolean expected = true;
 		Pot pot = new Pot();
 		boolean actual = pot.equals(expected);
-		
+
 		assertEquals(expected, actual);
 	}
 }

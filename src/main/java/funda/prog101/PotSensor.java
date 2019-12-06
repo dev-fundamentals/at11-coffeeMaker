@@ -1,6 +1,6 @@
 package main.java.funda.prog101;
 
-public class PotSensor extends Sensor{
+public class PotSensor extends Sensor {
 	public boolean isAboveHeater(Pot pot) {
 		return pot.aboveHeater;
 	}

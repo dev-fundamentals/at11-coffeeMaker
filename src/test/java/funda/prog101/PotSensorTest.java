@@ -17,10 +17,10 @@ public class PotSensorTest {
 		Sensor sensorpot = new PotSensor();
 		boolean expected = true;
 		boolean actual = sensorpot.isAboveHeater(pot);
-		
+
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void isAboveHeater_False_TakeOut() {
 		Pot pot = new Pot();
@@ -28,29 +28,30 @@ public class PotSensorTest {
 		Sensor sensorpot = new PotSensor();
 		boolean expected = false;
 		boolean actual = sensorpot.isAboveHeater(pot);
-		
+
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void isEmpty_True_PotIsEmtpy() {
 		byte quantity = 12;
 		Container pot = new Pot(ContentType.EMPTY, quantity, quantity, true);
 		Sensor sensorpot = new PotSensor();
-		
+
 		boolean expected = true;
 		boolean actual = sensorpot.isEmpty(pot);
-		
+
 		assertEquals(expected, actual);
 	}
+
 	public void isEmpty_False_PotIsNotEmtpy() {
 		byte quantity = 12;
 		Container pot = new Pot(ContentType.WATER, quantity, quantity, true);
 		Sensor sensorpot = new PotSensor();
-		
+
 		boolean expected = false;
 		boolean actual = sensorpot.isEmpty(pot);
-		
+
 		assertEquals(expected, actual);
 	}
 

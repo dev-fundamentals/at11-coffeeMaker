@@ -18,24 +18,22 @@ public class BoilerSensorTest {
 		byte quantity = 12;
 		Sensor sensorboiler = new BoilerSensor();
 		Container boiler = new Boiler(ContentType.WATER, quantity, quantity, true);
-		
+
 		boolean expected = false;
 		boolean actual = sensorboiler.isEmpty(boiler);
-		
+
 		assertEquals(expected, actual);
-		
 	}
+
 	@Test
 	public void isEmtpy_True_BoilerIsEmpty() {
 		byte quantity = 12;
 		Sensor sensorboiler = new BoilerSensor();
 		Container boiler = new Boiler(ContentType.EMPTY, quantity, quantity, true);
-		
+
 		boolean expected = true;
 		boolean actual = sensorboiler.isEmpty(boiler);
-		
-		assertEquals(expected, actual);
-		
-	}
 
+		assertEquals(expected, actual);
+	}
 }

@@ -6,6 +6,6 @@ public abstract class Sensor {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	public abstract boolean isEmpty(Container container);
 
+	public abstract boolean isEmpty(Container container);
 }

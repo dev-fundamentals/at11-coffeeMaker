@@ -28,7 +28,7 @@ public abstract class Container {
 	 * This method update Pot's contentType.
 	 * @param pot
 	 */
-	public void mixCoffee(Pot pot) {
+	public void mixCoffee() {
 	}
 	/*
 	 * Verify the pot is Pot contains 12 cups.

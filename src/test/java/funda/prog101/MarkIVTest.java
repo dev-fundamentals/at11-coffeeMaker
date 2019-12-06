@@ -22,14 +22,14 @@ public class MarkIVTest {
 	}
 	
 	@Test
-	public void testPowerButtonMethodToPowerOn() {
+	public void testPowerButtonMethodToPowerOn() throws InterruptedException {
 		MarkIV markIV = new MarkIV();
 		markIV.powerButton(true);
 		assertTrue(markIV.verifyStateMark(true));
 	}
 	
 	@Test
-	public void testPowerButtonMethodToPowerOff() {
+	public void testPowerButtonMethodToPowerOff() throws InterruptedException {
 		MarkIV markIV = new MarkIV();
 		markIV.powerButton(false);
 		boolean actual = markIV.verifyStateMark(false);
@@ -39,21 +39,16 @@ public class MarkIVTest {
 	@Test
 	public void testPowerButtonMethodHappyPath() throws InterruptedException {
 		MarkIV markIV = new MarkIV();
+		Boiler boiler = (Boiler)markIV.getBoiler();
+		Pot pot = (Pot)markIV.getPot();
 		markIV.powerButton(true);
 		boolean actual = markIV.verifyStateMark(true);
-		Heater heaterBolier = markIV.getHeaterBoiler();
-		Heater heaterPot = markIV.getHeaterPot();
-		Boiler boiler = (Boiler)markIV.getBoiler();
+		boolean actualLight = markIV.isLight();
+		boolean expected = true;
 		
-		heaterBolier.switchHeater();
-		CoffeeFilter coffe = (CoffeeFilter)markIV.getCoffeeFilter();
-		coffe.mixCoffee();
-		Thread.sleep(10000);
-		Pot pot = (Pot)markIV.getPot();
-		pot.addCups();
-		heaterPot.switchHeater();
-		heaterBolier.switchHeater();
-//		markIV.presure = true;
-		boiler.switchPipe();
+		assertEquals(expected, actual);
+		assertEquals(expected, actualLight);
+		assertEquals(0, boiler.getQuantity());
+		assertEquals(12, pot.getQuantity());
 	}
 }

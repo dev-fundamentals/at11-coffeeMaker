@@ -1,5 +1,10 @@
 package main.java.funda.prog101;
 
+/**
+ * Mark class, this is used to interetac with user 
+ * @author Juan
+ *
+ */
 public class MarkIV {
 	private Container boiler;
 	private Container pot;
@@ -52,8 +57,8 @@ public class MarkIV {
 	 * This is MarkIV constructor
 	 */
 	public MarkIV() {
-		this.boiler = new Boiler(ContentType.WATER, (byte)12, (byte)12, true);
-		this.pot = new Pot();
+		this.boiler = new Boiler(ContentType.WATER, (byte)12, (byte)12, false);
+		this.pot = new Pot(ContentType.EMPTY, (byte)0, (byte)12, true);
 		this.coffeeFilter = new CoffeeFilter();
 		this.heaterBoiler = new Heater();
 		this.heaterPot = new Heater();
@@ -67,10 +72,32 @@ public class MarkIV {
 	/**
 	 * This method is for setting startButton
 	 * @param switchButton boolean parameter;
+	 * @throws InterruptedException 
 	 */
-	public void powerButton(boolean switchButton) {
+	public void powerButton(boolean switchButton) throws InterruptedException {
 		this.switchButton = switchButton;
-		this.light = switchButton;
+		if (switchButton) {
+			heaterBoiler.switchHeater();
+			boiler.switchPipe();
+			Thread.sleep(10000);
+			this.light = true;
+			for (int item = 0; item < boiler.limit; item++) {
+				boiler.quantity--;
+				coffeeFilter.addCups();
+				coffeeFilter.mixCoffee();
+				Thread.sleep(1000);
+				pot.addCups();
+			}
+			heaterPot.switchHeater();
+			this.presureValvue = true;
+		}
+		else {
+			heaterBoiler.switchHeater();
+			heaterPot.switchHeater();
+			this.light = false;
+			boiler.switchPipe();
+			presureValvue = false;
+		}
 	}
 	
 	/**
@@ -102,13 +129,13 @@ public class MarkIV {
 		if (sensorPot.isAboveHeater(pot1)) {
 			pot1.aboveHeater = false;
 			heaterBoiler.switchHeater();
-//			boiler.presure = false;
+			this.presureValvue = false;
 			boiler.switchPipe();
 		}
 		else {
 			pot1.aboveHeater = true;
 			heaterBoiler.switchHeater();
-//			boiler.presure = false;
+			this.presureValvue = false;
 			boiler.switchPipe();
 		}
 	}

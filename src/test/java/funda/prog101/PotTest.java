@@ -12,7 +12,7 @@ public class PotTest {
 	public void addCups_AddCupsofContainerUntil12_True() {
 		Container pot = new Pot();
 		pot.addCups(pot);
-		var actual = pot.equals(pot);
+		boolean actual = pot.equals(pot);
 		
 		assertTrue(actual);
 	}

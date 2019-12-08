@@ -21,7 +21,7 @@ public class Pot extends Container {
 	 */
 	@Override
 	public void addCups() {
-			this.quantity++;
+		this.quantity++;
 	}
 
 	/**
@@ -36,10 +36,18 @@ public class Pot extends Container {
 	}
 	
 	/**
+	 * Method for checking quantity of Pot container
+	 * @return byte
+	 */
+	public byte quantityChecker() {
+		return this.quantity;
+	}
+	
+	/**
 	 * This method is for return pot quantity
 	 * @return byte
 	 */
-	public byte getQuantity() {
-		return this.quantity;
+	public boolean isAbove(boolean above) {
+		return this.aboveHeater == above;
 	}
 }

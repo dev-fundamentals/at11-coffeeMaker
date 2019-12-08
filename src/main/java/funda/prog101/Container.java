@@ -38,4 +38,10 @@ public abstract class Container {
 			return true;
 		return false;
 	}
+	
+	/**
+	 * Method for checking quantity of container
+	 * @return byte
+	 */
+	public abstract byte quantityChecker();
 }

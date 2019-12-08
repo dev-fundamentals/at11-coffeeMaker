@@ -26,4 +26,12 @@ public class CoffeeFilter extends Container{
 	public void mixCoffee() {
 		this.contentType = contentType.COFFEE;
 	}
+	
+	/**
+	 * Method for checking quantity of filter container
+	 * @return byte
+	 */
+	public byte quantityChecker() {
+		return this.quantity;
+	}
 }

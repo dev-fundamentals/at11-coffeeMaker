@@ -53,6 +53,7 @@ public class MarkIV {
 	public void powerButton(boolean switchButton) throws InterruptedException {
 		this.switchButton = switchButton;
 	}
+	
 	/**
 	 * This method is for setting prepareCoffee
 	 * @param required byte parameter
@@ -62,11 +63,11 @@ public class MarkIV {
 		String message = "";
 		byte minimumQuantity = 0;
 		byte boilerQuantity = this.boiler.quantityChecker();
-		boolean boilerContent = boilerSensor.isEmpty(boiler);
-		if (boilerContent)
+		boolean boilerEmpty = boilerSensor.isEmpty(boiler);
+		if (boilerEmpty)
 			return message = "Boiler is "+ boiler.contentType + " load WATER";
-		boolean potContent = potSensor.isAboveHeater(pot);
-		if (!potContent)
+		boolean potAboveheater = potSensor.isAboveHeater(pot);
+		if (!potAboveheater)
 			return message = "Pot is not above";
 		if (boilerQuantity < required)
 			return message = "there are not enough "+ boiler.contentType;
@@ -100,14 +101,13 @@ public class MarkIV {
 		heaterBoiler.switchHeater();
 		boiler.switchPipe();
 		Thread.sleep(10000);
-		this.light = true;
 		for (int item = 0; item < required; item++) {
 			boiler.quantity--;
-			coffeeFilter.addCups();
 			coffeeFilter.mixCoffee();
 			Thread.sleep(1000);
 			pot.addCups();
 		}
+		this.light = true;
 		heaterPot.switchHeater();
 		this.presureValvue = true;
 	}

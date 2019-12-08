@@ -22,7 +22,6 @@ public class MarkIVTest {
 		assertTrue(markIV.equals(mark));
 	}
 	
-	
 	@Test
 	public void testPowerButtonMethodHappyPath() throws InterruptedException {
 		MarkIV markIV = new MarkIV();

@@ -1,8 +1,9 @@
 package main.java.funda.prog101;
 
 public class PotSensor extends Sensor {
-	public boolean isAboveHeater(Pot pot) {
-		return pot.aboveHeater;
+	public boolean isAboveHeater(Container pot) {
+		Pot p = (Pot)pot;
+		return p.aboveHeater;
 	}
 
 	@Override

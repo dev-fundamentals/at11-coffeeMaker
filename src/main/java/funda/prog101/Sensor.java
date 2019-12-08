@@ -2,7 +2,7 @@ package main.java.funda.prog101;
 
 public abstract class Sensor {
 
-	public boolean isAboveHeater(Pot pot) {
+	public boolean isAboveHeater(Container pot) {
 		// TODO Auto-generated method stub
 		return false;
 	}

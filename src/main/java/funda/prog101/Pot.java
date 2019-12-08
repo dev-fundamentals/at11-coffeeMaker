@@ -21,10 +21,7 @@ public class Pot extends Container {
 	 */
 	@Override
 	public void addCups() {
-		// TODO Auto-generated method stub
-		for (int iterator = this.quantity; iterator < this.limit; iterator++) {
-			this.quantity++;
-		}
+		this.quantity++;
 	}
 
 	/**
@@ -36,5 +33,21 @@ public class Pot extends Container {
 		} else {
 			this.aboveHeater = true;
 		}
+	}
+	
+	/**
+	 * Method for checking quantity of Pot container
+	 * @return byte
+	 */
+	public byte quantityChecker() {
+		return this.quantity;
+	}
+	
+	/**
+	 * This method is for return pot quantity
+	 * @return byte
+	 */
+	public boolean isAbove(boolean above) {
+		return this.aboveHeater == above;
 	}
 }

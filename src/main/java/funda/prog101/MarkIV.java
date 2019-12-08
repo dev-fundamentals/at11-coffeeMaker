@@ -1,13 +1,18 @@
 package main.java.funda.prog101;
 
+/**
+ * Mark class, this is used to interetac with user 
+ * @author Juan
+ *
+ */
 public class MarkIV {
 	private Container boiler;
 	private Container pot;
 	private Container coffeeFilter;
 	private Heater heaterBoiler;
 	private Heater heaterPot;
-	private Sensor sensorBoiler;
-	private Sensor sensorPot;
+	private Sensor boilerSensor;
+	private Sensor potSensor;
 	private boolean switchButton;
 	private boolean light;
 	private boolean presureValvue;
@@ -20,30 +25,6 @@ public class MarkIV {
 		return pot;
 	}
 
-	public Container getCoffeeFilter() {
-		return coffeeFilter;
-	}
-
-	public Heater getHeaterBoiler() {
-		return heaterBoiler;
-	}
-
-	public Heater getHeaterPot() {
-		return heaterPot;
-	}
-
-	public Sensor getSensorBoiler() {
-		return sensorBoiler;
-	}
-
-	public Sensor getSensorPot() {
-		return sensorPot;
-	}
-
-	public boolean isSwitchButton() {
-		return switchButton;
-	}
-
 	public boolean isLight() {
 		return light;
 	}
@@ -52,13 +33,13 @@ public class MarkIV {
 	 * This is MarkIV constructor
 	 */
 	public MarkIV() {
-		this.boiler = new Boiler(ContentType.WATER, (byte)12, (byte)12, true);
-		this.pot = new Pot();
+		this.boiler = new Boiler(ContentType.WATER, (byte)12, (byte)12, false);
+		this.pot = new Pot(ContentType.EMPTY, (byte)0, (byte)12, true);
 		this.coffeeFilter = new CoffeeFilter();
 		this.heaterBoiler = new Heater();
 		this.heaterPot = new Heater();
-		this.sensorBoiler = new BoilerSensor();
-		this.sensorBoiler = new PotSensor();
+		this.boilerSensor = new BoilerSensor();
+		this.potSensor = new PotSensor();
 		this.switchButton = false;
 		this.light = false;
 		this.presureValvue = false;
@@ -66,11 +47,69 @@ public class MarkIV {
 	
 	/**
 	 * This method is for setting startButton
-	 * @param switchButton boolean parameter;
+	 * @param switchButton boolean parameter
+	 * @throws InterruptedException 
 	 */
-	public void powerButton(boolean switchButton) {
+	public void powerButton(boolean switchButton) throws InterruptedException {
 		this.switchButton = switchButton;
-		this.light = switchButton;
+	}
+	
+	/**
+	 * This method is for setting prepareCoffee
+	 * @param required byte parameter
+	 * @throws InterruptedException 
+	 */
+	public String prepareCoffee(byte required) throws InterruptedException {
+		String message = "";
+		byte minimumQuantity = 0;
+		byte boilerQuantity = this.boiler.quantityChecker();
+		boolean boilerEmpty = boilerSensor.isEmpty(boiler);
+		if (boilerEmpty)
+			return message = "Boiler is "+ boiler.contentType + " load WATER";
+		boolean potAboveheater = potSensor.isAboveHeater(pot);
+		if (!potAboveheater)
+			return message = "Pot is not above";
+		if (boilerQuantity < required)
+			return message = "there are not enough "+ boiler.contentType;
+		byte filterQuantity = this.coffeeFilter.quantityChecker();
+		byte potQuantity = this.pot.quantityChecker();
+		if (filterQuantity > minimumQuantity && boilerQuantity > minimumQuantity
+				&& required + potQuantity <= pot.limit && switchButton) {
+			executeMark(required);
+			message = "Successful";
+			return message;
+		}
+		else {
+			heaterBoiler.switchHeater();
+			heaterPot.switchHeater();
+			this.light = false;
+			boiler.switchPipe();
+			presureValvue = false;
+			message = "Something was wrong";
+			return message;
+		}
+	}
+	
+	/**
+	 * This method is for execute mark action
+	 * @param state gets boolean value
+	 * @return a boolean result e.g. true or false
+	 * @throws InterruptedException 
+	 */
+	public void executeMark(byte required) throws InterruptedException {
+		this.switchButton = true;
+		heaterBoiler.switchHeater();
+		boiler.switchPipe();
+		Thread.sleep(10000);
+		for (int item = 0; item < required; item++) {
+			boiler.quantity--;
+			coffeeFilter.mixCoffee();
+			Thread.sleep(1000);
+			pot.addCups();
+		}
+		this.light = true;
+		heaterPot.switchHeater();
+		this.presureValvue = true;
 	}
 	
 	/**
@@ -95,21 +134,5 @@ public class MarkIV {
 		if (switchButton != other.switchButton)
 			return false;
 		return true;
-	}
-	
-	public void actionHeater() {
-		Pot pot1 = (Pot)pot;
-		if (sensorPot.isAboveHeater(pot1)) {
-			pot1.aboveHeater = false;
-			heaterBoiler.switchHeater();
-//			boiler.presure = false;
-			boiler.switchPipe();
-		}
-		else {
-			pot1.aboveHeater = true;
-			heaterBoiler.switchHeater();
-//			boiler.presure = false;
-			boiler.switchPipe();
-		}
 	}
 }

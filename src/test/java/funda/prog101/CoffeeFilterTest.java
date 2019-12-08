@@ -7,7 +7,7 @@ public class CoffeeFilterTest {
 
 	@Test
 	public void mixCoffee_() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 }

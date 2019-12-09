@@ -8,8 +8,6 @@ public class Heater {
 	}
 
 	public boolean switchHeater() {
-		if (this.state)
-			return this.state = false;
-		return this.state = true;
+		return this.state = !state;
 	}
 }

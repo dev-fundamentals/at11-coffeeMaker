@@ -28,11 +28,7 @@ public class Pot extends Container {
 	 * The method putOnTakeOutPot change the state of variable aboveHeater
 	 */
 	public void putOnTakeOutPot() {
-		if (aboveHeater) {
-			this.aboveHeater = false;
-		} else {
-			this.aboveHeater = true;
-		}
+		this.aboveHeater = !aboveHeater;
 	}
 	
 	/**
